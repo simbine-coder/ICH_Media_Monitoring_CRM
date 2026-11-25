@@ -1,58 +1,40 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## Media Monitoring CRM
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Portal de media intelligence para o património cultural imaterial e a propriedade intelectual, no âmbito da Fonte Culture.
 
-## About Laravel
+Projeto académico. O cenário descrito abaixo é fictício e serve fins de aprendizagem.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## O conceito
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+A Fonte Culture é uma associação sem fins lucrativos, sediada em Genebra, dedicada à salvaguarda do património cultural imaterial (ICH) e a abordagens responsáveis ao conhecimento cultural e à propriedade intelectual. Como tantas organizações do setor, precisa de financiamento para manter as suas atividades.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Neste cenário, a associação decide fazer algo simples: partilhar o que já sabe fazer. A partir da sua posição e do seu conhecimento do setor, passa a oferecer uma solução de media intelligence centrada no ICH e na propriedade intelectual, isto é, uma forma organizada de acompanhar o que se publica e se discute sobre estes temas. As receitas geradas revertem para o trabalho da própria associação.
 
-## Learning Laravel
+A solução destina-se a quem precisa de acompanhar este universo e raramente tem tempo para o fazer: instituições de património, museus, comunidades e grupos portadores de tradições, investigadores, organizações e redes internacionais, juristas e decisores políticos, parceiros e financiadores. Com ela, estes stakeholders podem:
+- perceber como o património vivo é retratado nos media e que temas ganham ou perdem visibilidade;
+- seguir o debate sobre conhecimento tradicional, expressões culturais e direitos;
+- identificar a tempo menções, tendências e situações que merecem atenção;
+- apoiar decisões, candidaturas e relatórios com informação reunida num só lugar.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Para a associação, é uma forma de financiar a missão sem se afastar dela. Para quem usa o serviço, é a garantia de que a informação vem de quem conhece o terreno.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Como funciona
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+Os relatórios de monitorização são painéis do Looker Studio, apresentados dentro da aplicação. O acesso depende da categoria de usuarios:
 
-## Agentic Development
+# Perfis & Permissoes
+- Visitante (sem sessão) :	Ver apenas os títulos dos reports ativos
+- Utilizador registado :	Aceder aos reports ativos e escolher qual abrir
+- Administrador: 	Criar, editar, apagar, ativar e desativar reports
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+Os reports inativos só o administrador os vê.
 
-```bash
-composer require laravel/boost --dev
+# Tecnologia
 
-php artisan boost:install
-```
+- Laravel 13
+- Fortify (autenticação)
+- MySQL, 
+- Blade e,
+- Looker Studio (relatórios incorporados).
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
