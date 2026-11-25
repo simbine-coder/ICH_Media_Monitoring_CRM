@@ -1,0 +1,401 @@
+
+/* =========================================
+   FONTE CULTURE — PORTAL
+   ========================================= */
+
+:root {
+  --fc-navy: #082D4B;
+  --fc-blue: #175071;
+  --fc-gold: #C49A36;
+  --fc-white: #FFFFFF;
+  --fc-grey: #F5F7F8;
+  --fc-charcoal: #172A38;
+
+  --font-heading: "Marcellus", Georgia, serif;
+  --font-body: "Source Sans 3", Arial, sans-serif;
+}
+
+
+/* =========================================
+   GLOBAL RESET
+   ========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--fc-white);
+  color: var(--fc-navy);
+  font-family: var(--font-body);
+}
+
+
+/* =========================================
+   INTRO SCREEN
+   ========================================= */
+
+.intro-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--fc-white);
+
+  opacity: 1;
+  visibility: visible;
+
+  transition:
+    opacity 0.65s ease,
+    visibility 0.65s ease;
+}
+
+.intro-screen.is-exiting {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.intro-lockup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  padding: 30px;
+}
+
+
+/* =========================================
+   EMBLEM ANIMATION
+   ========================================= */
+
+.intro-emblem {
+  width: clamp(105px, 15vw, 170px);
+  aspect-ratio: 1 / 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 24px;
+
+  overflow: hidden;
+}
+
+.intro-emblem img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+  clip-path: inset(100% 0 0 0);
+
+  animation: emblemReveal 1.65s cubic-bezier(0.65, 0, 0.35, 1)
+    0.15s forwards;
+}
+
+@keyframes emblemReveal {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+
+/* =========================================
+   WORDMARK ANIMATION
+   ========================================= */
+
+.intro-wordmark {
+  font-family: var(--font-heading);
+  font-size: clamp(25px, 4vw, 39px);
+  font-weight: 400;
+  letter-spacing: 0.19em;
+  color: var(--fc-navy);
+
+  opacity: 0;
+  transform: translateY(12px);
+
+  animation: textReveal 0.85s ease 1.35s forwards;
+}
+
+@keyframes textReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================
+   ORIGIN / KNOWLEDGE / CULTURE / FUTURE
+   ========================================= */
+
+.intro-sequence {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 9px;
+
+  margin-top: 15px;
+
+  font-family: var(--font-body);
+  font-size: clamp(10px, 1.25vw, 13px);
+  font-weight: 500;
+  letter-spacing: 0.19em;
+
+  color: var(--fc-gold);
+
+  opacity: 0;
+  transform: translateY(8px);
+
+  animation: textReveal 0.75s ease 2.05s forwards;
+}
+
+.sequence-dot {
+  color: var(--fc-gold);
+  opacity: 0.85;
+}
+
+
+/* =========================================
+   FINAL PORTAL SCREEN
+   ========================================= */
+
+.portal-screen {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--fc-white);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity 0.8s ease,
+    visibility 0.8s ease;
+}
+
+.portal-screen.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* =========================================
+   AUTHENTICATION NAVIGATION
+   ========================================= */
+
+.auth-navigation {
+  position: absolute;
+  top: 34px;
+  right: 5%;
+
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  opacity: 0;
+  transform: translateY(-8px);
+
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.portal-screen.is-visible .auth-navigation {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.25s;
+}
+
+.auth-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 105px;
+  padding: 10px 22px;
+
+  border: 1px solid var(--fc-navy);
+  border-radius: 2px;
+
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+
+  text-decoration: none;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.login-button {
+  color: var(--fc-navy);
+  background: transparent;
+}
+
+.login-button:hover {
+  color: var(--fc-white);
+  background: var(--fc-navy);
+}
+
+.register-button {
+  color: var(--fc-white);
+  background: var(--fc-navy);
+}
+
+.register-button:hover {
+  color: var(--fc-white);
+  background: var(--fc-blue);
+  border-color: var(--fc-blue);
+}
+
+
+/* =========================================
+   CENTRAL BRAND
+   ========================================= */
+
+.portal-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: min(90%, 620px);
+
+  text-align: center;
+
+  opacity: 0;
+  transform: translateY(8px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.portal-screen.is-visible .portal-brand {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+
+.portal-logo {
+  display: block;
+
+  width: min(100%, 430px);
+  max-height: 180px;
+
+  object-fit: contain;
+}
+
+.portal-sequence {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 9px;
+
+  margin-top: 23px;
+
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+
+  color: var(--fc-gold);
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+
+@media (max-width: 600px) {
+
+  .auth-navigation {
+    top: 22px;
+    right: 20px;
+    gap: 8px;
+  }
+
+  .auth-button {
+    min-width: 85px;
+    padding: 9px 14px;
+    font-size: 13px;
+  }
+
+  .portal-logo {
+    width: min(100%, 430px);
+  }
+
+  .portal-sequence {
+    max-width: 300px;
+    gap: 7px;
+    font-size: 10px;
+    letter-spacing: 0.13em;
+    line-height: 1.8;
+  }
+
+  .intro-sequence {
+    max-width: 320px;
+    gap: 7px;
+    font-size: 15px;
+    letter-spacing: 0.13em;
+    line-height: 1.8;
+  }
+
+  .intro-wordmark {
+    font-size: 25px;
+    letter-spacing: 0.13em;
+  }
+}
+
+
+/* =========================================
+   REDUCED MOTION ACCESSIBILITY
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+}
